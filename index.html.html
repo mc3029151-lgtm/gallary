@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eclipse Gallery</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b0f1a;
+  color: white;
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 20px;
+  background: #111827;
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Subtitle */
+.subtitle {
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: #9ca3af;
+}
+
+/* Slider */
+.slider {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  flex: 0 0 300px;
+  margin: 10px;
+}
+
+iframe {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* Buttons */
+.btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+}
+
+.btn-left { left: 0; }
+.btn-right { right: 0; }
+
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+  background: #111827;
+  color: #6b7280;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>🌑 Eclipse Gallery</header>
+<div class="subtitle">A glimpse of what we planned before</div>
+
+<div class="slider">
+  <div class="slides" id="slides">
+
+```
+<!-- Replace VIDEO_ID with your YouTube video IDs -->
+<div class="slide"><iframe src="vi1.mp4"></iframe></div>
+<div class="slide"><iframe src="vi2.mp4"></iframe></div>
+<div class="slide"><iframe src="vi3.mp4"></iframe></div>
+<div class="slide"><iframe src="vi4.mp4"></iframe></div>
+<div class="slide"><iframe src="vi5.mp4"></iframe></div>
+<div class="slide"><iframe src="vi6.mp4"></iframe></div>
+<div class="slide"><iframe src="vi7.mp4"></iframe></div>
+<div class="slide"><iframe src="vi8.mp4"></iframe></div>
+<div class="slide"><iframe src="vi10.mp4"></iframe></div>
+<div class="slide"><iframe src="https://www.youtube.com/embed/VIDEO_ID10"></iframe></div>
+<div class="slide"><iframe src="https://www.youtube.com/embed/VIDEO_ID11"></iframe></div>
+<div class="slide"><iframe src="https://www.youtube.com/embed/VIDEO_ID12"></iframe></div>
+<div class="slide"><iframe src="https://www.youtube.com/embed/VIDEO_ID13"></iframe></div>
+<div class="slide"><iframe src="https://www.youtube.com/embed/VIDEO_ID14"></iframe></div>
+<div class="slide"><iframe src="https://www.youtube.com/embed/VIDEO_ID15"></iframe></div>
+```
+
+  </div>
+
+<button class="btn btn-left" onclick="moveSlide(-1)">❮</button> <button class="btn btn-right" onclick="moveSlide(1)">❯</button>
+
+</div>
+
+<footer>© 2026 Eclipse Gallary</footer>
+
+<script>
+let index = 0;
+
+function moveSlide(direction) {
+  const slides = document.getElementById("slides");
+  const totalSlides = slides.children.length;
+  const visibleSlides = 3;
+  const slideWidth = 320;
+
+  index += direction;
+
+  if (index < 0) index = 0;
+  if (index > totalSlides - visibleSlides) {
+    index = totalSlides - visibleSlides;
+  }
+
+  slides.style.transform = "translateX(-" + (index * slideWidth) + "px)";
+}
+</script>
+
+</body>
+</html>
